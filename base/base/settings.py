@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # internal apps
-    'accounts.apps.AccountsConfig',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +128,5 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+# user manager config
+AUTH_USER_MODEL = 'account.User'
