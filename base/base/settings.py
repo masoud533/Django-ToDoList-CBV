@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # internal apps
     'account',
+    'tasks'
 ]
 
 MIDDLEWARE = [
