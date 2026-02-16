@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Todo App{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #020617;
+            --text: #e5e7eb;
+            --muted: #94a3b8;
+            --primary: #38bdf8;
+            --danger: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: Vazirmatn, system-ui, -apple-system;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(120deg, #020617, #020617);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        header {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #020617;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .user-box {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .user-box form {
+            display: inline;
+            margin-left: 0.5rem;
+        }
+
+        .user-box button {
+            background: none;
+            border: none;
+            color: var(--danger);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        main {
+            max-width: 720px;
+            margin: 2.5rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,.4);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="brand">✅ Todo</div>
+
+    <div class="user-box">
+        {% if user.is_authenticated %}
+            سلام {{ user.email }}
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">خروج</button>
+            </form>
+        {% endif %}
+    </div>
+</header>
+
+<main>
+    <div class="card">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+
+<footer>
+    ساخته شده با ❤️ و Django
+</footer>
+
+</body>
+</html>

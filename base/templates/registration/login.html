@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}ورود{% endblock %}
+
+{% block content %}
+<style>
+    .auth-wrapper {
+        max-width: 380px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .auth-wrapper h2 {
+        margin-bottom: 1.5rem;
+    }
+
+    .auth-field {
+        margin-bottom: 1rem;
+        text-align: right;
+    }
+
+    .auth-field label {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 0.3rem;
+    }
+
+    .auth-field input {
+        width: 100%;
+        padding: 0.65rem 0.75rem;
+        border-radius: 10px;
+        border: 1px solid #1e293b;
+        background: #020617;
+        color: var(--text);
+    }
+
+    .auth-field input:focus {
+        outline: none;
+        border-color: var(--primary);
+    }
+
+    .auth-error {
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid var(--danger);
+        color: var(--danger);
+        padding: 0.6rem;
+        border-radius: 10px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .auth-submit {
+        width: 100%;
+        padding: 0.7rem;
+        border-radius: 12px;
+        border: none;
+        background: var(--primary);
+        color: #020617;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 0.5rem;
+    }
+
+    .auth-submit:hover {
+        opacity: 0.9;
+    }
+
+    .auth-links {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+    }
+</style>
+
+<div class="auth-wrapper">
+    <h2>ورود</h2>
+
+    {% if form.errors %}
+        <div class="auth-error">
+            ایمیل یا رمز عبور اشتباه است
+        </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="auth-field">
+            <label for="id_username">ایمیل</label>
+            {{ form.username }}
+        </div>
+
+        <div class="auth-field">
+            <label for="id_password">رمز عبور</label>
+            {{ form.password }}
+        </div>
+
+        <button type="submit" class="auth-submit">
+            ورود
+        </button>
+    </form>
+
+    <div class="auth-links">
+        <a href="{% url 'password_reset' %}">رمز عبور رو فراموش کردی؟</a>
+    </div>
+</div>
+{% endblock %}
