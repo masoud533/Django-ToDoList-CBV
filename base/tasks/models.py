@@ -2,7 +2,7 @@ from django.db import models
 
 class Task(models.Model):
     user = models.ForeignKey(
-        'accounts.User',
+        'account.User',
         on_delete=models.CASCADE,
         related_name='tasks'
     )
