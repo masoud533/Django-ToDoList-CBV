@@ -131,3 +131,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # user manager config
 AUTH_USER_MODEL = 'account.User'
+
+
+# settings.py
+LOGIN_REDIRECT_URL = 'tasks:list'
+LOGOUT_REDIRECT_URL = 'login'

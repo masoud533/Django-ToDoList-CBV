@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}پروفایل{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <h2>پروفایل کاربری</h2>
+
+    <p style="margin-top: 1rem;">
+        👋 سلام  
+        <strong>{{ request.user.email }}</strong>
+    </p>
+
+    <hr style="margin: 1.5rem 0; border-color: #1e293b;">
+
+    <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+        <a href="{% url 'password_change' %}">🔐 تغییر رمز عبور</a>
+        <a href="{% url 'tasks:list' %}">✅ رفتن به تسک‌ها</a>
+        <a href="{% url 'logout' %}">🚪 خروج</a>
+    </div>
+</div>
+{% endblock %}
