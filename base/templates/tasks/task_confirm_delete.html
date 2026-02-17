@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Task{% endblock %}
+
+{% block content %}
+
+<div class="todo-header">
+    <h2>🗑 حذف تسک</h2>
+    <p>این عملیات قابل بازگشت نیست</p>
+</div>
+
+<div class="task-item" style="margin-top: 20px;">
+    <span class="task-title">
+        {{ object.title }}
+    </span>
+</div>
+
+<form method="post" style="margin-top: 20px; display: flex; gap: 10px;">
+    {% csrf_token %}
+    <button type="submit" class="btn danger">✅ بله، حذف کن</button>
+    <a href="{% url 'tasks:list' %}" class="btn">❌ منصرف شدم</a>
+</form>
+
+{% endblock %}

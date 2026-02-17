@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Task{% endblock %}
+
+{% block content %}
+
+<div class="todo-header">
+    <h2>✏️ ویرایش تسک</h2>
+    <p>عنوان تسک رو اصلاح کن</p>
+</div>
+
+<form method="post" class="task-input" style="border-top: none;">
+    {% csrf_token %}
+    {{ form.title }}
+    <button type="submit">💾</button>
+</form>
+
+<div style="margin-top: 16px;">
+    <a href="{% url 'tasks:list' %}" class="btn">← برگشت به لیست</a>
+</div>
+
+{% endblock %}
