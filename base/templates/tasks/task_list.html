@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}My Tasks{% endblock %}
+
+{% block content %}
+
+<div class="todo-header">
+    <h2>📝 تسک‌های من</h2>
+    <p>کارهایی که باید انجام بدی</p>
+</div>
+
+<ul class="task-list">
+    {% for task in tasks %}
+        <li class="task-item {% if task.is_done %}done{% endif %}">
+            <span class="task-title">
+                {{ task.title }}
+            </span>
+
+            <div class="task-actions">
+                <form method="post" action="{% url 'tasks:toggle' task.pk %}">
+                    {% csrf_token %}
+                    <button class="btn">
+                        {% if task.is_done %}↩{% else %}✅{% endif %}
+                    </button>
+                </form>
+
+                <a href="{% url 'tasks:edit' task.pk %}" class="btn">✏️</a>
+                <a href="{% url 'tasks:delete' task.pk %}" class="btn danger">🗑</a>
+            </div>
+        </li>
+    {% empty %}
+        <li class="empty-state">
+            هنوز تسکی نداری ✨
+        </li>
+    {% endfor %}
+</ul>
+
+<form method="post" class="task-input">
+    {% csrf_token %}
+    {{ form.title }}
+    <button type="submit">➕</button>
+</form>
+
+{% endblock %}
