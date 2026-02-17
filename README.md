@@ -146,8 +146,8 @@ python -m venv venv
 source venv/bin/activate   # Linux / macOS
 venv\Scripts\activate      # Windows
 pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
+python base/manage.py migrate
+python base/manage.py runserver
 ```
 🧪 Manual Test Checklist
 [ ] Register a user
@@ -176,5 +176,6 @@ demonstrate correct CBV usage
 serve as a reusable project template
 
 Built with ❤️ and Django
+
 
 
