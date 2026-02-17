@@ -140,7 +140,10 @@ Then open:
 ```text
 http://localhost:8000
 ```
-▶️ Run Locally (Without Docker)
+
+---
+
+##▶️ Run Locally (Without Docker)
 ```bash
 python -m venv venv
 source venv/bin/activate   # Linux / macOS
@@ -176,6 +179,7 @@ demonstrate correct CBV usage
 serve as a reusable project template
 
 Built with ❤️ and Django
+
 
 
 
