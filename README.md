@@ -152,7 +152,9 @@ pip install -r requirements.txt
 python base/manage.py migrate
 python base/manage.py runserver
 ```
-🧪 Manual Test Checklist
+---
+
+## 🧪 Manual Test Checklist
 [ ] Register a user
 [ ] Login
 [ ] Create a task
@@ -167,7 +169,10 @@ API authentication
 PostgreSQL support
 Redis / caching
 Production Docker setup
-🏁 Final Notes
+
+--- 
+
+## 🏁 Final Notes
 This is not a tutorial
 
 and not a production application.
@@ -179,6 +184,7 @@ demonstrate correct CBV usage
 serve as a reusable project template
 
 Built with ❤️ and Django
+
 
 
 
