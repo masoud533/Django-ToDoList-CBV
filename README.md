@@ -134,6 +134,7 @@ This project uses Docker for a consistent development environment.
 ## ▶️ Run with Docker
 ```bash
 docker compose up --build
+'''
 Then open:
 
 text
@@ -172,4 +173,5 @@ It is a clean Django reference project intended to:
 reinforce core Django concepts
 demonstrate correct CBV usage
 serve as a reusable project template
+
 Built with ❤️ and Django
