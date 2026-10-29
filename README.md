@@ -134,20 +134,27 @@ This project uses Docker for a consistent development environment.
 ## ▶️ Run with Docker
 ```bash
 docker compose up --build
+```
 Then open:
 
-text
+```text
 http://localhost:8000
-▶️ Run Locally (Without Docker)
-bash
+```
+
+---
+
+## ▶️ Run Locally (Without Docker)
+```bash
 python -m venv venv
 source venv/bin/activate   # Linux / macOS
 venv\Scripts\activate      # Windows
-
 pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
-🧪 Manual Test Checklist
+python base/manage.py migrate
+python base/manage.py runserver
+```
+---
+
+## 🧪 Manual Test Checklist
 [ ] Register a user
 [ ] Login
 [ ] Create a task
@@ -162,7 +169,10 @@ API authentication
 PostgreSQL support
 Redis / caching
 Production Docker setup
-🏁 Final Notes
+
+--- 
+
+## 🏁 Final Notes
 This is not a tutorial
 
 and not a production application.
@@ -172,4 +182,11 @@ It is a clean Django reference project intended to:
 reinforce core Django concepts
 demonstrate correct CBV usage
 serve as a reusable project template
+
 Built with ❤️ and Django
+
+
+
+
+
+
